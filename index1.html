@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Machine Cycle Duration</title>
+</head>
+
+<body>
+    <button onclick="startCycle(true)">Start Auto Cycle</button>
+    <button onclick="startCycle(false)">Start Manual Cycle</button>
+    <br>
+    <br>
+    <div id="trueCycleDurationDisplay"></div>
+    <div id="efficiencyDisplay"></div>
+
+    <script>
+        let startTime = null;
+        let isAutoCycle = false;
+        let trueCycleDuration = 0;
+        let falseCycleDuration = 0;
+        const totalDuration = 3; // Total duration in minutes
+
+        function startCycle(auto) {
+            if (startTime === null) {
+                startTime = new Date();
+                isAutoCycle = auto;
+            }
+        }
+
+        function calculateDuration() {
+            if (startTime !== null) {
+                const now = new Date();
+                const elapsedMilliseconds = now - startTime;
+                const elapsedMinutes = (elapsedMilliseconds / 1000 / 60); // Convert milliseconds to minutes
+
+                if (isAutoCycle) {
+                    trueCycleDuration += elapsedMinutes;
+                } else {
+                    falseCycleDuration += elapsedMinutes;
+                }
+
+                startTime = now;
+            }
+        }
+
+        function calculateEfficiency() {
+            const totalElapsed = trueCycleDuration + falseCycleDuration;
+            console.log(totalElapsed);
+            const efficiency = (trueCycleDuration / totalElapsed) * 100 || 0; // Calculate efficiency (handle division by zero)
+
+            document.getElementById("trueCycleDurationDisplay").textContent = `True Cycle Duration: ${trueCycleDuration} minutes`;
+            document.getElementById("efficiencyDisplay").textContent = `Efficiency: ${efficiency.toFixed(2)}%`;
+            console.log(`True Cycle Duration: ${trueCycleDuration} minutes`);
+            console.log(`Efficiency: ${efficiency.toFixed(2)}%`);
+        }
+
+        // Call calculateDuration every second (1000 milliseconds)
+        setInterval(calculateDuration, 1000);
+
+        // Call calculateEfficiency every second (1000 milliseconds)
+        setInterval(calculateEfficiency, 1000);
+    </script>
+</body>
+
+</html>
