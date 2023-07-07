@@ -1,0 +1,13 @@
+The hardware used and planned to be used in a proof of concept (POC) for connecting a PLC to the cloud, storing data, and displaying it on a dashboard can vary depending on specific requirements. Here's a general list of hardware that could be involved:
+
+PLC (Programmable Logic Controller): This is the primary hardware device used for controlling and monitoring industrial processes. The specific model and brand of the PLC can vary based on the application.
+
+SIMATIC IoT 2000 Gateway: The SIMATIC IoT 2000 is a gateway device that enables communication between the PLC and the cloud. It acts as a bridge between the industrial network and the internet, allowing data transmission to and from the PLC.
+
+Sensors and Actuators: These are the devices used to collect data from the physical environment and perform actions based on the PLC's instructions. Examples include temperature sensors, pressure sensors, proximity sensors, motors, valves, etc. The specific sensors and actuators will depend on the industrial process being monitored and controlled.
+
+AWS-Compatible IoT Devices: In the context of AWS IoT Core, there are various IoT devices available in the market that are compatible with AWS services. These devices can be used for direct integration with AWS IoT Core and facilitate data transmission and control.
+
+For the POC, it is advisable to use the existing PLC and SIMATIC IoT 2000 gateway, as you mentioned in your previous questions. Additionally, you may need sensors and actuators relevant to your specific application. It's important to ensure that these devices are compatible with the chosen communication protocols (such as OPC UA) and can be integrated with AWS IoT Core.
+
+Remember to refer to the documentation and compatibility guidelines provided by the PLC and gateway manufacturers to ensure that the hardware components align with the required standards and specifications for connecting to the cloud and implementing the desired functionalities.
