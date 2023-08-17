@@ -1,4 +1,23 @@
-const num = [7, 1, 5, 1];
+// function sales(arr) {
+//   let n = arr.length;
+//   let totalSales = 0;
+
+//   for (let i = 0; i < n; i++) {
+//     totalSales += arr[i];
+//   }
+//   return `total revenue generated in $ is : ${totalSales}`;
+// }
+// console.log(sales(array));
+
+// const array = [10, 20, 15, 30, 25, 13, 14];
+
+// const array = [
+//   52, 12, 34, 87, 23, 9, 56, 78, 90, 43, 67, 31, 72, 45, 14, 83, 64, 19, 38, 51,
+//   95, 61, 29, 5, 76, 49, 26, 81, 36, 68, 92, 17, 70, 93, 40, 98, 10, 55, 30, 84,
+//   7, 50, 85, 13, 37, 89, 25, 60, 88, 2, 65, 96, 22, 59, 32, 47, 75, 41, 80, 97,
+//   20, 74, 44, 79, 6, 63, 21, 46, 91, 18, 69, 33, 77, 4, 86, 57, 94, 11, 82, 15,
+//   39, 99, 66, 16, 54, 42, 73, 8, 35, 100, 27, 62, 48, 3, 71, 58, 24, 53, 28, 1,
+// ];
 
 const array = [
   493, 286, 167, 41, 390, 470, 271, 34, 146, 76, 126, 393, 211, 55, 238, 385,
@@ -35,22 +54,33 @@ const array = [
   355, 66, 157, 991,
 ];
 
-const target = 8;
-const target1 = 1212;
-
-findIndices = (num, target) => {
-  num.sort((a, b) => a - b);
-  const map = new Map();
-
-  for (let i = 0; i < num.length; i++) {
-    const compliment = target - num[i];
-    if (map.has(compliment)) {
-      return [map.get(compliment), i];
-    }
-    map.set(num[i], i);
+class Sales {
+  #totalRevenue = 0;
+  constructor(arr) {
+    this.arr = arr;
+    this.n = arr.length;
   }
-  return [0, 0];
-};
 
-// console.log(findIndices(num1, target));
-console.log(findIndices(array, target1));
+  totalSales = () => {
+    for (let i = 0; i < this.n; i++) {
+      this.#totalRevenue += this.arr[i];
+    }
+    return this.#totalRevenue;
+  };
+
+  averageSales = () => {
+    return (this.#totalRevenue / this.n).toFixed(40);
+  };
+}
+
+const newSales = new Sales(array);
+
+console.log("Total Sales :- ", newSales.totalSales());
+
+console.log("Total Revenue :- ", newSales.totalRevenue);
+console.log(
+  `Total Revenue is undefined because it is a private member of the class Sales and hence abstracted`
+);
+console.log("Input length :- ", newSales.n);
+
+console.log("Average Sales :- ", newSales.averageSales());

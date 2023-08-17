@@ -44,8 +44,6 @@ let st = 5;
 let sp = 5;
 
 for (let i = 1; i < 5; i++) {
-  //   let value = 10;
   value += st + sp;
-  //   console.log(value);
 }
 console.log("value: ", value);

@@ -1,47 +1,47 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>Machine Auto Cycle Duration</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <button onclick="startAutoCycle()">Start Auto Cycle</button>
     <button onclick="stopAutoCycle()">Stop Auto Cycle</button>
-    <br>
-    <br>
+    <br />
+    <br />
     <div id="autoCycleDurationDisplay"></div>
 
     <script>
-        let startTime = null;
-        let autoCycleDuration;
-        let intervalId = null;
+      let startTime = null;
+      let autoCycleDuration;
+      let intervalId = null;
 
-        function startAutoCycle() {
-            startTime = new Date();
-            console.log(startTime)
-            intervalId = setInterval(updateAutoCycleDuration, 1000);
-        }
+      function startAutoCycle() {
+        startTime = new Date();
+        console.log(startTime);
+        intervalId = setInterval(updateAutoCycleDuration, 1000);
+      }
 
-        function stopAutoCycle() {
-            clearInterval(intervalId);
-            updateAutoCycleDuration();
-            startTime = null;
-        }
+      function stopAutoCycle() {
+        clearInterval(intervalId);
+        updateAutoCycleDuration();
+        startTime = null;
+      }
 
-        function updateAutoCycleDuration() {
-            const now = new Date();
-            console.log(now)
-            const elapsedMilliseconds = now - startTime;
-            console.log(elapsedMilliseconds);
-            const elapsedMinutes = (elapsedMilliseconds / 60000); // Convert milliseconds to minutes
-            autoCycleDuration = elapsedMinutes;
-            console.log(elapsedMinutes)
+      function updateAutoCycleDuration() {
+        const now = new Date();
+        console.log(now);
+        const elapsedMilliseconds = now - startTime;
+        console.log(elapsedMilliseconds);
+        const elapsedMinutes = elapsedMilliseconds / 60000; // Convert milliseconds to minutes
+        autoCycleDuration = elapsedMinutes;
+        console.log(elapsedMinutes);
 
-            document.getElementById("autoCycleDurationDisplay").textContent = `Auto Cycle Duration: ${autoCycleDuration} minutes`;
-            console.log(`Auto Cycle Duration: ${autoCycleDuration} minutes`);
-        }
+        document.getElementById(
+          "autoCycleDurationDisplay"
+        ).textContent = `Auto Cycle Duration: ${autoCycleDuration} minutes`;
+        console.log(`Auto Cycle Duration: ${autoCycleDuration} minutes`);
+      }
     </script>
-</body>
-
+  </body>
 </html>
