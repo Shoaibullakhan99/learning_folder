@@ -36,3 +36,19 @@ function addSumBest(arr, target) {
 }
 
 console.log(addSumBest(arr, 5));
+
+// Search or Insert position of K in a sorted array
+
+function seachAndInsert(arr, k) {
+  let n = arr.length;
+  for (let i = 0; i < n; i++) {
+    if (arr[i] === k) {
+      return i;
+    } else if (arr[i] > k) {
+      return i;
+    }
+  }
+  return n;
+}
+
+console.log(seachAndInsert(arr, 2));
