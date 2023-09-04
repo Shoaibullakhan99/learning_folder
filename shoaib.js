@@ -1,1 +1,1 @@
-console.log("hi git from master");
+console.log("After solving git merge conflict");
